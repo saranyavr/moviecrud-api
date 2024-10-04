@@ -12,3 +12,7 @@ Simple MovieCrud functionality using Node Express MongoDB
 6. `git branch -m main`
 7. `git push -u origin main` or `git push`
 
+### DATABASE
+1. SQL - (`MySQL, MariaDB, PostGreSQL`)
+2. NOSQL - (mongoDB)
+
