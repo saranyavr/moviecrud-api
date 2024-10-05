@@ -1,26 +1,24 @@
 import express from "express";
-import movieRoutes from "./routes/movies.route.js"
+import movieRoutes from "./routes/movies.route.js";
 import connectDB from "./lib/db.js";
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
+// Data understanding middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
-connectDB;
+// Connect DB
+connectDB();
 
-app.get("/", (req, res)=> {
-    res.json({msg: "HEllo World!"});
+app.get("/", (req, res) => {
+  res.json({ msg: "Hello students!" });
 });
 
-//curd functinality of movies
+// CRUD functionality of movies
+app.use("/movies", movieRoutes);
 
-app.use("/movies",  movieRoutes);
-
-
-
-
-app.listen(port, (req, res )=> {
-    console.log(`your server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`The server is running at http://localhost:${PORT}`);
 });
